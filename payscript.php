@@ -49,7 +49,7 @@ include("header.php");
     	</div>
     </div>
     
-    <div class="row">
+    <div class="row" style="padding-bottom:30px;">
     	<div class="col-md-12">
     		<div class="panel panel-default">
     			<div class="panel-heading">
