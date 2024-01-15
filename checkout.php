@@ -1,24 +1,20 @@
+<?php
+$apiKey = "rzp_live_uKtN55KQReOrk3";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
-    <title>Document</title>
+    <title>Check Out</title>
 </head>
 
 <body>
     <!-- Header Start-->
-    <header class="text-gray-600 body-font">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a href="https://www.technicalhouse.live/"
-                class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <img src="img/th-logo.png" alt="Avatar" style="width:40px">
-                <span class="ml-3 text-xl">Technical House</span>
-            </a>
-        </div>
-    </header>
+<?php
+include("header.php");
+?>
     <!-- Header End-->
 
     <!-- Main Product Start-->
@@ -61,6 +57,10 @@
         </div>
     </section>
     <!-- Main Product End-->
+
+<?php
+include("footer.php");
+?>
 </body>
 
 </html>
