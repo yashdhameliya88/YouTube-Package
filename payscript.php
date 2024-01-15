@@ -78,13 +78,13 @@ include("header.php");
         							<td></td>
     								<td class="text-center"> </td>
     								<td class="text-center"></td>
-    								<td class="text-right"> ₹</td>
+    								<td class="text-right"> -</td>
     							</tr>
                                 <tr>
             						<td></td>
     								<td class="text-center"></td>
     								<td class="text-center"></td>
-    								<td class="text-right"> ₹</td>
+    								<td class="text-right"> -</td>
     							</tr>
     							<tr>
     								<td class="thick-line"></td>
