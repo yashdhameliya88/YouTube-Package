@@ -333,7 +333,7 @@
       <br>
       <center>
         <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
-          href="https://rzp.io/l/ytpack" target="_blank">Buy Now</a>
+          href="checkout.php" target="_blank">Buy Now</a>
       </center>
     </div>
   </section>
