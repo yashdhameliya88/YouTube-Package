@@ -1,4 +1,40 @@
 
+<?php
+include('db.php');
+
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    
+    // Retrieve data
+    $sql = "SELECT * FROM tbluser WHERE id = $id";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $email = $row['email'];
+        $password = generateRandomPassword();
+
+        // Update password in the database
+        $updateSql = "UPDATE tbluser SET password = '$password' WHERE id = $id";
+        $conn->query($updateSql);
+    } else {
+        echo "No data found";
+        exit();
+    }
+} else {
+    echo "Invalid request";
+    exit();
+}
+
+function generateRandomPassword($length = 8) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $password = '';
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $password;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +57,11 @@ include("header.php");
       <div
         class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
         <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><b>Payment successful</b>
-          <br class="hidden lg:inline-block">Edit Smarter, Not Costlier!
         </h1>
-        <p class="mb-8 leading-relaxed">Unleash your creativity with our YouTube Editing Package! Packed with editing
-          assets, templates, SEO tools, and growth tips, it's your all-in-one solution for crafting stunning videos.
-          Elevate your content effortlessly with our comprehensive toolkit! 🚀✨ #YouTubeEditing #ContentCreators</p>
+        <b><h3>Here is your ID and Password please save it.</h3></b>
+        <br class="hidden lg:inline-block">
+        <p>ID: <?php echo $email; ?></p>
+    <p>Password: <?php echo $password; ?></p>
         <div class="flex justify-center">
           <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
             href="https://rzp.io/l/ytpack" target="_blank">Buy Now</a>
