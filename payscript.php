@@ -1,7 +1,45 @@
 <?php
-$apiKey = "rzp_live_uKtN55KQReOrk3";
+// $apiKey = "rzp_live_uKtN55KQReOrk3";
+$apiKey = "rzp_test_y3PmwiFOLKAQlW";
 ?>
 
+<?php
+  
+    // Include database connection file
+    include 'db.php';
+
+    // Start the session
+    //session_start();
+
+    // Check if the form is submitted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Retrieve form data
+        $name = $_POST['name'];
+		$email = $_POST['email'];
+        $mobile = $_POST['mobile'];
+
+        // Validate form data
+       
+            // Hash the password before saving to the database
+            //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            // Insert user data into the database
+            $sql = "INSERT INTO tbluser (name, email, mobile) VALUES ('$name', '$email', '$mobile')";
+            
+            if ($conn->query($sql) === TRUE) {
+                // Registration successful
+                //header("Location: successpayment.php");
+                $errors = "Data stored successfully in the database.";
+                //exit();
+            } else {
+                // Registration failed
+                // $error = "Payment failed. Please try again.";
+                $errors = "Payment failed. Please try again.";
+            }
+
+       
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +49,8 @@ $apiKey = "rzp_live_uKtN55KQReOrk3";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="payment.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -25,103 +63,108 @@ include("header.php");
     <!-- Header End-->
 
     <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-    		<div class="invoice-title">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="text-align:center;"><b>Verify Your Details</b>
-		</div>
-    		<hr>
-    		<div class="row">
-    			<div class="col-xs-6 text-left">
-    				<address>
-    				<strong>Customer Details:</strong><br>
-    					<b>Name: </b><?php echo $_POST['name']; ?><br>
-    					<b>Phone: </b><?php echo $_POST['mobile']; ?><br>
-                        <b>Email: </b><?php echo $_POST['email']; ?><br>
-    				</address>
-    			</div>
-    			<div class="col-xs-6 text-right">
-                <address>
-    					<strong>Order Date:</strong><br>
-    					<?php echo date("d-m-Y");?><br><br>
-    				</address>
-    			</div>
-    		</div>
-    		
-    	</div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="invoice-title">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+                        style="text-align:center;"><b>Verify Your Details</b>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-6 text-left">
+                        <address>
+                            <strong>Customer Details:</strong><br>
+                            <b>Name: </b><?php echo $name; ?><br>
+                            <b>Phone: </b><?php echo $mobile; ?><br>
+                            <b>Email: </b><?php echo $email; ?><br>
+                        </address>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <address>
+                            <strong>Order Date:</strong><br>
+                            <?php echo date("d-m-Y");?><br><br>
+                        </address>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom:30px;">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Order summary</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Item</strong></td>
+                                        <td class="text-center"><strong>Price</strong></td>
+                                        <td class="text-center"><strong>Quantity</strong></td>
+                                        <td class="text-right"><strong>Totals</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                    <tr>
+                                        <td>YouTube Package</td>
+                                        <td class="text-center">49.00 ₹</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">49.00 ₹</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-center"> </td>
+                                        <td class="text-center"></td>
+                                        <td class="text-right"> -</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-right"> -</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="thick-line"></td>
+                                        <td class="thick-line"></td>
+                                        <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                                        <td class="thick-line text-right">49.00 ₹</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>TAX RATE</strong></td>
+                                        <td class="no-line text-right">00.00 ₹</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>Total</strong></td>
+                                        <td class="no-line text-right">49.00 ₹</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+
+                                        <td class="no-line text-right">
+										<button id="rzp-button1" type="submit" value="Pay Now"
+                                                class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                                                style="width: 100%;">Pay Now
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="row" style="padding-bottom:30px;">
-    	<div class="col-md-12">
-    		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title"><strong>Order summary</strong></h3>
-    			</div>
-    			<div class="panel-body">
-    				<div class="table-responsive">
-    					<table class="table table-condensed">
-    						<thead>
-                                <tr>
-        							<td><strong>Item</strong></td>
-        							<td class="text-center"><strong>Price</strong></td>
-        							<td class="text-center"><strong>Quantity</strong></td>
-        							<td class="text-right"><strong>Totals</strong></td>
-                                </tr>
-    						</thead>
-    						<tbody>
-    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
-    							<tr>
-    								<td>YouTube Package</td>
-    								<td class="text-center">49.00 ₹</td>
-    								<td class="text-center">1</td>
-    								<td class="text-right">49.00 ₹</td>
-    							</tr>
-                                <tr>
-        							<td></td>
-    								<td class="text-center"> </td>
-    								<td class="text-center"></td>
-    								<td class="text-right"> -</td>
-    							</tr>
-                                <tr>
-            						<td></td>
-    								<td class="text-center"></td>
-    								<td class="text-center"></td>
-    								<td class="text-right"> -</td>
-    							</tr>
-    							<tr>
-    								<td class="thick-line"></td>
-    								<td class="thick-line"></td>
-    								<td class="thick-line text-center"><strong>Subtotal</strong></td>
-    								<td class="thick-line text-right">49.00 ₹</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>TAX RATE</strong></td>
-    								<td class="no-line text-right">00.00 ₹</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Total</strong></td>
-    								<td class="no-line text-right">49.00 ₹</td>
-    							</tr>
-                                <tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								
-    								<td class="no-line text-right"><button id="rzp-button1" type="submit" value="Pay Now"
-                    class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="width: 100%;">Pay Now</button></td>
-    							</tr>
-    						</tbody>
-    					</table>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-</div>
 
     <?php
 include("footer.php");

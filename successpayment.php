@@ -1,44 +1,3 @@
-<?php
-$mssg = "Payment Successfull";
-?>
-
-<?php
-  
-    // Include database connection file
-    include 'db.php';
-
-    // Start the session
-    //session_start();
-
-    // Check if the form is submitted
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Retrieve form data
-        $name = $_POST['name'];
-		$email = $_POST['email'];
-        $mobile = $_POST['mobile'];
-
-        // Validate form data
-       
-            // Hash the password before saving to the database
-            //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            // Insert user data into the database
-            $sql = "INSERT INTO tbluser (name, email, mobile) VALUES ('$name', '$email', '$mobile')";
-            
-            if ($conn->query($sql) === TRUE) {
-                // Registration successful
-                //header("Location: successpayment.php");
-                echo "Data stored successfully in the database.";
-                exit();
-            } else {
-                // Registration failed
-                // $error = "Payment failed. Please try again.";
-                echo "Payment failed. Please try again.";
-            }
-
-       
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +8,32 @@ $mssg = "Payment Successfull";
     <title>Document</title>
 </head>
 <body>
-    <h1><?php echo $mssg; ?></h1>
+      <!-- Header Start-->
+      <?php
+include("header.php");
+?>
+<!-- Main Product Start-->
+<section class="text-gray-600 body-font" style="background-color: #f7f9fd;">
+    <div class="container mx-auto flex px-5 py-2 md:flex-row flex-col items-center">
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <img class="object-cover object-center rounded" alt="hero" src="img/49 Copy.png">
+      </div>
+      <div
+        class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><b>Payment successful</b>
+          <br class="hidden lg:inline-block">Edit Smarter, Not Costlier!
+        </h1>
+        <p class="mb-8 leading-relaxed">Unleash your creativity with our YouTube Editing Package! Packed with editing
+          assets, templates, SEO tools, and growth tips, it's your all-in-one solution for crafting stunning videos.
+          Elevate your content effortlessly with our comprehensive toolkit! 🚀✨ #YouTubeEditing #ContentCreators</p>
+        <div class="flex justify-center">
+          <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
+            href="https://rzp.io/l/ytpack" target="_blank">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Main Product End-->
+  
 </body>
 </html>
