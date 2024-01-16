@@ -22,6 +22,7 @@ if (isset($_GET['id'])) {
         $selectSql = "SELECT * FROM tbluser WHERE id = $id";
         $result = $conn->query($selectSql);
         $row = $result->fetch_assoc();
+        $name = $row['name'];
         $email = $row['email'];
         $password = $row['password'];
     }

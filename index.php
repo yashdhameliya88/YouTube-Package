@@ -28,8 +28,8 @@
           assets, templates, SEO tools, and growth tips, it's your all-in-one solution for crafting stunning videos.
           Elevate your content effortlessly with our comprehensive toolkit! 🚀✨ #YouTubeEditing #ContentCreators</p>
         <div class="flex justify-center">
-          <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
-            href="https://rzp.io/l/ytpack" target="_blank">Buy Now</a>
+        <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
+          href="checkout.php" target="_blank">Buy Now</a>
         </div>
       </div>
     </div>
