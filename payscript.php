@@ -1,6 +1,8 @@
 <?php
 $apiKey = "rzp_live_uKtN55KQReOrk3";
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +29,7 @@ include("header.php");
         <div class="col-xs-12">
     		<div class="invoice-title">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="text-align:center;"><b>Verify Your Details</b>
-    		</div>
+		</div>
     		<hr>
     		<div class="row">
     			<div class="col-xs-6 text-left">
@@ -142,7 +144,7 @@ var options = {
     "description": "",
     "image": "https://yt3.googleusercontent.com/yti/AGOGRCqpMYAw_JXbe741H1TG2B6ckH7cirv5S9FtCe1lHQ=s88-c-k-c0x00ffffff-no-rj",
     "id": "<?php echo 'OID'.rand(10,100).'YTPKG'; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "callback_url": "http://localhost/YouTube-package/successpayment.php",
     "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
         "name": "<?php echo $_POST['name']; ?>", //your customer's name
         "email": "<?php echo $_POST['email']; ?>",
