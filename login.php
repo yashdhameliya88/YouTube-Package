@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Login successful
         $row = $result->fetch_assoc();
         $id = $row['id']; // Assuming your tbluser has an 'id' column
-        $name = $row['name'];
-        header("Location: product.php?id=$id");
+        $email = $row['email'];
+        header("Location: product.php?id=$id&email=$email");
         exit();
     } else {
         $error = "Invalid email or password";
