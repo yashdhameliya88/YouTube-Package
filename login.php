@@ -3,6 +3,7 @@ session_start();
 include('db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -11,9 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Login successful
-        $user = $result->fetch_assoc();
-        $_SESSION['user_id'] = $user['id']; // Assuming your tbluser has an 'id' column
-        header("Location: product.php");
+        $row = $result->fetch_assoc();
+        $id = $row['id']; // Assuming your tbluser has an 'id' column
+        $name = $row['name'];
+        header("Location: product.php?id=$id");
         exit();
     } else {
         $error = "Invalid email or password";
