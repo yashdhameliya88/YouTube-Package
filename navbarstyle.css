@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar a.login, .navbar a.order, .navbar a.profile {
+    float: right;
+}
+
+.navbar a.icon {
+    float: left;
+    display: none;
+}
+
+.navbar a.close-icon {
+    float: left;
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar a:not(.icon):not(.close-icon) {
+        display: none;
+    }
+
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+
+    .navbar a.close-icon {
+        float: left;
+        display: none;
+    }
+
+    .navbar.responsive a.icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+    }
+
+    .navbar.responsive a.close-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+    }
+
+    .navbar.responsive a:not(.icon):not(.close-icon) {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}

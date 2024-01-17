@@ -13,6 +13,8 @@ $apiKey = "rzp_test_y3PmwiFOLKAQlW";
 
     // Check if the form is submitted
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $id = generateRandomId();
         // Retrieve form data
         $name = $_POST['name'];
 		$email = $_POST['email'];
@@ -24,10 +26,11 @@ $apiKey = "rzp_test_y3PmwiFOLKAQlW";
             //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
             // Insert user data into the database
-            $sql = "INSERT INTO tbluser (name, email, mobile) VALUES ('$name', '$email', '$mobile')";
+            $sql = "INSERT INTO tbluser (id, name, email, mobile) VALUES ('$id','$name', '$email', '$mobile')";
             
             if ($conn->query($sql) === TRUE) {
-                $last_id = $conn->insert_id;
+                // $last_id = $conn->insert_id;
+                $last_id = $id;
                 // Registration successful
                 //header("Location: successpayment.php");
                 $errors = "Data stored successfully in the database.";
@@ -39,6 +42,15 @@ $apiKey = "rzp_test_y3PmwiFOLKAQlW";
             }
 
        
+    }
+
+    function generateRandomId($length = 8) {
+        $characters = '0123456789';
+        $id = '';
+        for ($i = 0; $i < $length; $i++) {
+            $id .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $id;
     }
 ?>
 
