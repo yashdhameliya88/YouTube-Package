@@ -11,7 +11,8 @@ $result = $conn->query($checkSql);
 if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $name = $row['name'];
-} }
+} 
+}
 else {
   echo "User not found";
   exit();
@@ -38,8 +39,9 @@ else {
         <a href="index.php" class="logo">Technical House</a>
         <a href="#" class="icon" onclick="toggleNavbar()">&#9776;</a>
         <a href="#" class="close-icon" onclick="toggleNavbar()">&#10006;</a>
-        <a class="login"><?php echo $name;?></a>
         <a href="index.php" class="login">Log out</a>
+        <a class="login"><?php echo $name;?></a>
+        
     </div>
 
     <script>
