@@ -13,6 +13,7 @@
 
 
 <?php include("header.php");?>
+
 <!-- Main Product Start-->
   <section class="text-gray-600 body-font" style="background-color: #f7f9fd;">
     <div class="container mx-auto flex px-5 py-2 md:flex-row flex-col items-center">
@@ -21,8 +22,8 @@
       </div>
       <div
         class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><b>YouTube Package</b>
-          <br class="hidden lg:inline-block">Edit Smarter, Not Costlier!
+        <h1 class="title-font sm:text-6xl text-3xl mb-4 font-medium text-gray-900"><b>YouTube Package</b><br>
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Edit Smarter, Not Costlier!</h1>
         </h1>
         <p class="mb-8 leading-relaxed">Unleash your creativity with our YouTube Editing Package! Packed with editing
           assets, templates, SEO tools, and growth tips, it's your all-in-one solution for crafting stunning videos.
