@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./navbarstyle.css">
    
 </head>
-<body>
+<body oncontextmenu="return false;">
 
 <div class="navbar" id="navbar">
     <a href="index.php" class="logo">Technical House</a>

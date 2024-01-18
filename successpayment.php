@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
         }
         else{
             include "usernot.php";
-        }    
+        }
     }
 } else {
     include "invalidrequest.php";
