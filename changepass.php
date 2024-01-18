@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./navbarstyle.css">
     <title>Change Password</title>
+    <script>
+        function validateForm() {
+            var oldPassword = document.getElementById("old_password").value;
+            var newPassword = document.getElementById("new_password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+
+            if (oldPassword === "" || newPassword === "" || confirmPassword === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 
 <body oncontextmenu="return false;">
@@ -25,44 +39,43 @@
 
         if ($resultData->num_rows > 0) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $oldPassword = $_POST['old_password'];
-            $newPassword = $_POST['new_password'];
-            $confirmPassword = $_POST['confirm_password'];
+                $oldPassword = $_POST['old_password'];
+                $newPassword = $_POST['new_password'];
+                $confirmPassword = $_POST['confirm_password'];
 
-            // Check if old password is correct
-            $checkSql = "SELECT id FROM tbluser WHERE id = '$id' AND password = '$oldPassword'";
-            $checkResult = $conn->query($checkSql);
+                // Check if old password is correct
+                $checkSql = "SELECT id FROM tbluser WHERE id = '$id' AND password = '$oldPassword'";
+                $checkResult = $conn->query($checkSql);
 
-            if ($checkResult->num_rows > 0) {
-                // Check if new password and confirm password match
-                if ($newPassword === $confirmPassword) {
-                    // Your password change logic here
-                    $updateSql = "UPDATE tbluser SET password = '$newPassword' WHERE id = $id";
-                    $conn->query($updateSql);
+                if ($checkResult->num_rows > 0) {
+                    // Check if new password and confirm password match
+                    if ($newPassword === $confirmPassword) {
+                        // Your password change logic here
+                        $updateSql = "UPDATE tbluser SET password = '$newPassword' WHERE id = $id";
+                        $conn->query($updateSql);
 
-                    echo '<script>';
-                    echo 'alert("Password changed successfully!");';
-                    echo 'window.location.href = "login.php";'; // Redirect to login.php after clicking OK
-                    echo '</script>';
+                        echo '<script>';
+                        echo 'alert("Password changed successfully!");';
+                        echo 'window.location.href = "login.php";'; // Redirect to login.php after clicking OK
+                        echo '</script>';
+                    } else {
+                        echo '<script>';
+                        echo 'alert("New password and confirm password do not match.");';
+                        echo 'window.location.href = "";'; // Redirect to same page after clicking OK
+                        echo '</script>';
+                    }
                 } else {
-                    echo '<script>';
-                    echo 'alert("New password and confirm password do not match.");';
-                    echo 'window.location.href = "";'; // Redirect to same page after clicking OK
-                    echo '</script>';
-                    
-                }
-            } else {
                     echo '<script>';
                     echo 'alert("Incorrect old password.");';
                     echo 'window.location.href = "";'; // Redirect to same page after clicking OK
                     echo '</script>';
+                }
             }
-        }
     ?>
     <!-- Header Start-->
     <!-- Header Start-->
     <div class="navbar" id="navbar">
-        <a href="index.php" class="logo">Technical House</a>
+        <a href="product.php?id=<?php echo $id;?>&email=<?php echo $email;?>" class="logo">Technical House</a>
         <a href="#" class="icon" onclick="toggleNavbar()">&#9776;</a>
         <a href="#" class="close-icon" onclick="toggleNavbar()">&#10006;</a>
         <a href="index.php" class="login">Log out</a>
@@ -99,35 +112,29 @@
                             require>
                     </div>
                     <div class="relative mb-4">
-                        <label for="confirm_password" class="leading-7 text-sm text-gray-600">Confirm New
-                            Password</label>
+                        <label for="confirm_password" class="leading-7 text-sm text-gray-600">Confirm Password</label>
                         <input type="password" id="confirm_password" name="confirm_password"
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             require>
                     </div>
                     <button type="submit" value="Change Password"
-                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Change
-                        Password</button>
+                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                        onclick="return validateForm()">Change Password</button>
                 </form>
-                <?php
-    if (isset($error)) {
-        echo "<p>$error</p>";
-    }
-    ?>
+                
             </div>
-        </div>
         </div>
     </section>
     <!-- Main Product End-->
 
     <?php
-include("footer.php");
-?>
+        include("footer.php");
+    ?>
 <?php
-}
-else{
-    include "usernot.php"; 
-}
+    }
+    else{
+        include "usernot.php"; 
+    }
 } else {
     include "invalidrequest.php"; 
 }

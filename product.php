@@ -13,7 +13,7 @@
     <title>Product</title>
 </head>
 
-<body>
+<body oncontextmenu="return false;">
 <?php
 include('db.php');
 
@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
 ?>
     <!-- Header Start-->
     <div class="navbar" id="navbar">
-        <a href="index.php" class="logo">Technical House</a>
+        <a href="product.php?id=<?php echo $id;?>&email=<?php echo $email;?>" class="logo">Technical House</a>
         <a href="#" class="icon" onclick="toggleNavbar()">&#9776;</a>
         <a href="#" class="close-icon" onclick="toggleNavbar()">&#10006;</a>
         <a href="index.php" class="login">Log out</a>
