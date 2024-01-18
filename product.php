@@ -1,24 +1,4 @@
-<?php
-include('db.php');
 
-if (isset($_GET['id'])) {
-$id = $_GET['id'];
-$email = $_GET['email'];
-
-$checkSql = "SELECT * FROM tbluser WHERE id = '$id' AND email = '$email'";
-$result = $conn->query($checkSql);
-
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  $name = $row['name'];
-} 
-}
-else {
-  echo "User not found";
-  exit();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +14,20 @@ else {
 </head>
 
 <body>
+<?php
+include('db.php');
+
+if (isset($_GET['id'])) {
+$id = $_GET['id'];
+$email = $_GET['email'];
+
+$checkSql = "SELECT * FROM tbluser WHERE id = '$id' AND email = '$email'";
+$result = $conn->query($checkSql);
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $name = $row['name'];
+?>
     <!-- Header Start-->
     <div class="navbar" id="navbar">
         <a href="index.php" class="logo">Technical House</a>
@@ -50,7 +44,7 @@ else {
         navbar.classList.toggle("responsive");
     }
     </script>
-    <!-- Header End-->
+    <!-- Header End -->
 
     <!-- Product Download Start! -->
     <section class="text-gray-600 body-font">
@@ -460,6 +454,20 @@ else {
 include("footer.php");
 ?>
     <!-- Footer End! -->
+    <?php
+    }
+    else{
+        include "usernot.php"; 
+    }
+    
+}
+else {
+   
+   echo "User not found";
+  exit();
+}
+
+?>
 </body>
 
 </html>

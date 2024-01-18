@@ -50,7 +50,7 @@ include("header.php");
                 class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
 
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><b>Login</b> </h1>
-                <p class="leading-relaxed mb-5 text-gray-600">Use Your ID and Password for Login.</p>
+                <p class="leading-relaxed mb-5 text-gray-600">Use Your Email and Password for Login.</p>
                 <form action="login.php" method="POST" style="padding: 25px;">
                     
                     <div class="relative mb-4">
@@ -60,7 +60,7 @@ include("header.php");
                             require>
                     </div>
                     <div class="relative mb-4">
-                        <label for="password" class="leading-7 text-sm text-gray-600">Name</label>
+                        <label for="password" class="leading-7 text-sm text-gray-600">Password</label>
                         <input type="password" id="password" name="password"
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             require>

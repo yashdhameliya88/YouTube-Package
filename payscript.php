@@ -31,6 +31,7 @@ $apiKey = "rzp_test_y3PmwiFOLKAQlW";
             if ($conn->query($sql) === TRUE) {
                 // $last_id = $conn->insert_id;
                 $last_id = $id;
+                $last_email = $email;
                 // Registration successful
                 //header("Location: successpayment.php");
                 $errors = "Data stored successfully in the database.";
@@ -200,7 +201,7 @@ var options = {
     "description": "",
     "image": "https://yt3.googleusercontent.com/yti/AGOGRCqpMYAw_JXbe741H1TG2B6ckH7cirv5S9FtCe1lHQ=s88-c-k-c0x00ffffff-no-rj",
     "id": "<?php echo 'OID'.rand(10,100).'YTPKG'; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "callback_url": "http://localhost/YouTube-package/successpayment.php?id=<?php echo $last_id; ?>",
+    "callback_url": "http://localhost/YouTube-package/successpayment.php?id=<?php echo $last_id; ?>&email=<?php echo $last_email;?>",
     "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
         "name": "<?php echo $_POST['name']; ?>", //your customer's name
         "email": "<?php echo $_POST['email']; ?>",
