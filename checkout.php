@@ -8,7 +8,7 @@ $apiKey = "rzp_live_uKtN55KQReOrk3";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Out</title>
+    <title>Technical House</title>
     <script>
         function validateForm() {
             var name = document.getElementById("name").value;

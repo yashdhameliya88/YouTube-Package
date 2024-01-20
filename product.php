@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./navbarstyle.css">
 
-    <title>Product</title>
+    <title>Technical House</title>
 </head>
 
 <body oncontextmenu="return false;">

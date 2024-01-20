@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./navbarstyle.css">
-    <title>Change Password</title>
+    <title>Technical House</title>
     <script>
         function validateForm() {
             var oldPassword = document.getElementById("old_password").value;
