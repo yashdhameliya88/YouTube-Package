@@ -11,11 +11,11 @@
     <title>Technical House</title>
     <script>
     function validateForm() {
-        var oldPassword = document.getElementById("old_password").value;
+
         var newPassword = document.getElementById("new_password").value;
         var confirmPassword = document.getElementById("confirm_password").value;
 
-        if (oldPassword === "" || newPassword === "" || confirmPassword === "") {
+        if (newPassword === "" || confirmPassword === "") {
             alert("All fields are required");
             return false;
         }
@@ -31,48 +31,49 @@
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $name = $_GET['name'];
         $email = $_GET['email'];
 
-        $checkSqlData = "SELECT * FROM tbluser WHERE id = '$id'  AND name = '$name' AND email = '$email'";
-        $resultData = $conn->query($checkSqlData);
+        $checkSql = "SELECT * FROM tbluser WHERE id = '$id' AND email = '$email'";
+        $result = $conn->query($checkSql);
 
-        if ($resultData->num_rows > 0) {
+        if ($result->num_rows > 0) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $oldPassword = $_POST['old_password'];
                 $newPassword = $_POST['new_password'];
                 $confirmPassword = $_POST['confirm_password'];
 
-                // Check if old password is correct
-                $checkSql = "SELECT id FROM tbluser WHERE id = '$id' AND password = '$oldPassword'";
-                $checkResult = $conn->query($checkSql);
-
-                if ($checkResult->num_rows > 0) {
-                    // Check if new password and confirm password match
                     if ($newPassword === $confirmPassword) {
+                        echo "confirm";
                         // Your password change logic here
                         $updateSql = "UPDATE tbluser SET password = '$newPassword' WHERE id = $id";
-                        $conn->query($updateSql);
+                        //$conn->query($updateSql);
 
-                        echo '<script>';
-                        echo 'alert("Password changed successfully!");';
+                        if ($conn->query($updateSql) === TRUE) {
+                            echo '<script>';
+                        echo 'alert("Password reset successfully!");';
                         echo 'window.location.href = "login.php";'; // Redirect to login.php after clicking OK
                         echo '</script>';
-                    } else {
-                        echo '<script>';
-                        echo 'alert("New password and confirm password do not match.");';
-                        echo 'window.location.href = "";'; // Redirect to same page after clicking OK
-                        echo '</script>';
-                    }
-                } else {
-                    echo '<script>';
-                    echo 'alert("Incorrect old password.");';
-                    echo 'window.location.href = "";'; // Redirect to same page after clicking OK
-                    echo '</script>';
-                }
+                        }else {
+                            echo '<script>';
+                            echo 'alert("New password and confirm password do not match.");';
+                            echo 'window.location.href = "";'; // Redirect to same page after clicking OK
+                            echo '</script>';
+                        }
+                        
+                    } 
+               
             }
+
+           
+    }
+    else{
+        include "usernot.php"; 
+    }
+} else {
+    include "invalidrequest.php"; 
+}
+
     ?>
-    <!-- Header Start-->
+
     <!-- Header Start-->
     <div class="navbar" id="navbar">
         <a href="product.php?id=<?php echo $id;?>&email=<?php echo $email;?>" class="logo">Technical House</a>
@@ -96,16 +97,9 @@
             <div
                 class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
 
-                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><b>Change Password</b> </h1>
-                
-                <form action="" method="POST" style="padding: 25px;" onsubmit="return validateForm()">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><b>New Password</b> </h1>
+                <form action="" method="POST" style="padding: 25px;" onclick="return validateForm()">
 
-                    <div class="relative mb-4">
-                        <label for="old_password" class="leading-7 text-sm text-gray-600">Old Password</label>
-                        <input type="password" id="old_password" name="old_password"
-                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                            required>
-                    </div>
                     <div class="relative mb-4">
                         <label for="new_password" class="leading-7 text-sm text-gray-600">New Password</label>
                         <input type="password" id="new_password" name="new_password"
@@ -118,10 +112,11 @@
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             required>
                     </div>
-                    <button type="submit" value="changepassword"
+                    <button type="submit" value="submit"
                         class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                        style="width: 100%;">Change Password</button>
+                        style="width: 100%;">Submit</button>
                 </form>
+
             </div>
         </div>
     </section>
@@ -130,15 +125,7 @@
     <?php
         include("footer.php");
     ?>
-    <?php
-    }
-    else{
-        include "usernot.php"; 
-    }
-} else {
-    include "invalidrequest.php"; 
-}
-?>
+
 </body>
 
 </html>

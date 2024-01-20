@@ -16,6 +16,7 @@
     <a href="#" class="icon" onclick="toggleNavbar()">&#9776;</a>
     <a href="#" class="close-icon" onclick="toggleNavbar()">&#10006;</a>
     <a href="login.php" class="login">Login</a>
+    <a href="index.php" class="login">Home</a>
 </div>
 
 <script>

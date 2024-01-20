@@ -76,7 +76,7 @@ $apiKey = "rzp_live_uKtN55KQReOrk3";
                         <small class="text-red-500">Note: Mobile number should be 10-digit only.</small>
                     </div>
                     <button type="submit"
-                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Check Out</button>
+                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="width:100%;">Check Out</button>
                 </form>
 
             </div>

@@ -6,7 +6,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="Qnu36e-PyL8IIpMzK5farJrsUINLkUOd2HYw5djQ6wE" />
-  
+  <script>
+        function redirectToPage() {
+             window.location.href = 'checkout.php';
+        }
+    </script>
 </head>
 
 <body>
@@ -28,10 +32,9 @@
         <p class="mb-8 leading-relaxed">Unleash your creativity with our YouTube Editing Package! Packed with editing
           assets, templates, SEO tools, and growth tips, it's your all-in-one solution for crafting stunning videos.
           Elevate your content effortlessly with our comprehensive toolkit! 🚀✨ #YouTubeEditing #ContentCreators</p>
-        <div class="flex justify-center">
-        <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
-          href="checkout.php" target="_blank">Buy Now</a>
-        </div>
+        
+        <button onclick="redirectToPage()" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="width: 100%;background-color:green;">Buy Now</button>
+        
       </div>
     </div>
   </section>
@@ -320,10 +323,9 @@
           </nav>
         </div>
       </div>
-      <br>
+      <br><br>
       <center>
-        <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
-          href="checkout.php" target="_blank">Buy Now</a>
+        <button onclick="redirectToPage()" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="width: 50%;background-color:green;">Buy Now</button>
       </center>
     </div>
   </section>
