@@ -179,7 +179,7 @@ include("header.php");
             </div>
         </div>
     </div>
-
+<br><br><br>
     <?php
 include("footer.php");
 ?>
@@ -195,7 +195,7 @@ include("footer.php");
 <script>
 var options = {
     "key": "<?php echo $apiKey; ?>", // Enter the Key ID generated from the Dashboard
-    "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "amount": "4900", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
     "name": "Technical House", //your business name
     "description": "",
