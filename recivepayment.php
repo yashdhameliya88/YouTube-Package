@@ -117,7 +117,22 @@ include("header.php");
                                     <strong>Your Login Email and Password:</strong><br />
 
                                     Email: <b style="color:blue;"><?php echo $email; ?></b> <br />
-                                    Password: <b style="color:blue;"><?php echo $password; ?></b>
+                                    Password: <b id="myInput" style="color:blue;"><?php echo $password; ?></b>
+                                <a id="k2button" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg buttonyt"
+                                    style="border-radius: 30px;cursor: pointer;">Copy</a>
+                                <script>
+                                function copyFunction() {
+                                    const copyText = document.getElementById("myInput").textContent;
+                                    const textArea = document.createElement('textarea');
+                                    textArea.textContent = copyText;
+                                    document.body.append(textArea);
+                                    textArea.select();
+                                    document.execCommand("copy");
+                                    k2button.innerText = "Text copied";
+                                    textArea.remove();
+                                }
+                                document.getElementById('k2button').addEventListener('click', copyFunction);
+                                </script>
                                 </p>
                                 <br>
                                 <p
