@@ -87,7 +87,7 @@
                     </div>
                     <button type="submit" value="submit" style="width:100%;"
                         class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button><br><br>
-                    <center><a href="login.php" style="cursor: pointer; text-decoration: none; color: blue;"
+                    <b><center><a href="login.php" style="cursor: pointer; text-decoration: none; color: blue;"
                             onmouseover="this.style.textDecoration='underline'; this.style.color='blue'"
                             onmouseout="this.style.textDecoration='none'; this.style.color='blue'">Login</a>
                         <a href="">|</a>
@@ -95,6 +95,7 @@
                             onmouseover="this.style.textDecoration='underline'; this.style.color='blue'"
                             onmouseout="this.style.textDecoration='none'; this.style.color='blue'">Registration</a>
                     </center>
+                    </b>
                 </form>
 
             </div>

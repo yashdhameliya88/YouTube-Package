@@ -77,7 +77,13 @@ $apiKey = "rzp_live_uKtN55KQReOrk3";
                     </div>
                     <button type="submit"
                         class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="width:100%;">Check Out</button>
-                </form>
+                    <br><br>
+                        <center>
+                            <b><p>I have an account: </a><a href="login.php" style="cursor: pointer; text-decoration: none; color: blue;" onmouseover="this.style.textDecoration='underline'; this.style.color='blue'" onmouseout="this.style.textDecoration='none'; this.style.color='blue'">Login</a>
+                            </p></b>
+                        </center>
+                    
+                    </form>
 
             </div>
         </div>

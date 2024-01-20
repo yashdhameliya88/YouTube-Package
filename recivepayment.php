@@ -1,4 +1,9 @@
-<!-- Header Start -->
+<script>
+        function redirectToPage() {
+             window.location.href = 'login.php';
+        }
+    </script>
+    <!-- Header Start -->
 <?php
 include("header.php");
 ?>
@@ -171,8 +176,8 @@ include("header.php");
                                     style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;">
                                     <strong>Login to Download YouTube Package</strong>
                                 </p><br>
-                                <a class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button1"
-                                    href="login.php" target="_blank">Login</a>
+                                <button onclick="redirectToPage()" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="width: 100%;">Login</button>
+                    
                                 <p
                                     style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;">
                                 </p>
