@@ -1,6 +1,5 @@
 <?php
-// $apiKey = "rzp_live_uKtN55KQReOrk3";
-$apiKey = "rzp_live_iJjqNwsB6EeNNi";
+$apiKey = "[YOUR PAYMENT API KEY HERE]";
 ?>
 
 <?php
